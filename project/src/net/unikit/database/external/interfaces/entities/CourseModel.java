@@ -8,19 +8,19 @@ import java.util.List;
 public interface CourseModel {
     Integer getId();
     String getName();
-    void setName(String nameField);
+    void setName(String name);
     String getAbbreviation();
-    void setAbbreviation(String abbreviationField);
+    void setAbbreviation(String abbreviation);
     Integer getSemester();
-    void setSemester(Integer semesterField);
+    void setSemester(Integer semester);
     int getMinTeamSize();
-    void setMinTeamSize(int minTeamSizeField);
+    void setMinTeamSize(int minTeamSize);
     int getMaxTeamSize();
-    void setMaxTeamSize(int maxTeamSizeField);
+    void setMaxTeamSize(int maxTeamSize);
     List<DidacticUnitModel> getDidacticUnits();
-    void setDidacticUnits(List<DidacticUnitModel> didacticUnitModels);
+    void setDidacticUnits(List<DidacticUnitModel> didacticUnits);
     List<CourseToFieldOfStudyModel> getCourseToFieldOfStudies();
-    void setCourseToFieldOfStudies(List<CourseToFieldOfStudyModel> courseToFieldOfStudyModels);
+    void setCourseToFieldOfStudies(List<CourseToFieldOfStudyModel> courseToFieldOfStudies);
     List<CompletedCourseModel> getCompletedCourses();
-    void setCompletedCourses(List<CompletedCourseModel> completedCourseModels);
+    void setCompletedCourses(List<CompletedCourseModel> completedCourses);
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface DidacticUnitModel {
     Integer getId();
     CourseModel getCourse();
-    void setCourse(CourseModel courseField);
+    void setCourse(CourseModel course);
     List<AppointmentModel> getAppointments();
-    void setAppointments(List<AppointmentModel> appointmentModels);
+    void setAppointments(List<AppointmentModel> appointments);
 }
