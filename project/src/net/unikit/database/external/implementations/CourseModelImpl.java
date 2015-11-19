@@ -2,13 +2,11 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.CourseModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "COURSE", uniqueConstraints = {
@@ -33,4 +31,13 @@ final class CourseModelImpl implements CourseModel {
 
 	@Column(name = "max_team_size", nullable = false)
 	private int maxTeamSize;
+
+	@OneToMany(mappedBy = "courseField")
+	private List<DidacticUnitModelImpl> didacticUnitModels = new ArrayList<>();
+
+	@OneToMany(mappedBy = "courseField")
+	private List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels = new ArrayList<>();
+
+	@OneToMany(mappedBy = "courseField")
+	private List<CompletedCourseModelImpl> completedCourseModels = new ArrayList<>();
 }

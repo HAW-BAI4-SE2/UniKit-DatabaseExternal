@@ -4,6 +4,9 @@ import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -17,4 +20,7 @@ final class DidacticUnitModelImpl implements DidacticUnitModel {
 	@ManyToOne
 	@JoinColumn(name = "course_id", nullable = false)
 	private CourseModelImpl course;
+
+	@OneToMany(mappedBy = "didacticUnitField")
+	private List<AppointmentModelImpl> appointmentModels = new ArrayList<>();
 }

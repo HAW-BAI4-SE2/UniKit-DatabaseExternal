@@ -3,6 +3,8 @@ package net.unikit.database.external.implementations;
 import net.unikit.database.external.interfaces.entities.StudentModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "STUDENT", uniqueConstraints = @UniqueConstraint(columnNames = "email") )
@@ -26,4 +28,7 @@ final class StudentModelImpl implements StudentModel {
 
 	@Column(name = "semester", nullable = false)
 	private int semester;
+
+	@OneToMany(mappedBy = "studentField")
+	private List<CompletedCourseModelImpl> completedCourseModels = new ArrayList<>();
 }

@@ -2,13 +2,11 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "FIELD_OF_STUDY", uniqueConstraints = {
@@ -24,4 +22,7 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 
 	@Column(name = "abbreviation", unique = true, nullable = false, length = 31)
 	private String abbreviation;
+
+	@OneToMany(mappedBy = "fieldOfStudyField")
+	private List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels = new ArrayList<>();
 }
