@@ -25,4 +25,7 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 
 	@OneToMany(mappedBy = "fieldOfStudyField")
 	private List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels = new ArrayList<>();
+
+	@OneToMany(mappedBy = "fieldOfStudyField")
+	private List<StudentModelImpl> studentModels = new ArrayList<>();
 }
