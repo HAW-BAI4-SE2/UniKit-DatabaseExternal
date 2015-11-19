@@ -22,4 +22,36 @@ final class CourseToFieldOfStudyModelImpl implements CourseToFieldOfStudyModel {
 	@ManyToOne
 	@JoinColumn(name = "field_of_study_id", nullable = false)
 	private FieldOfStudyModelImpl fieldOfStudyField;
+
+	public CourseToFieldOfStudyModelImpl() {
+	}
+
+	public CourseToFieldOfStudyModelImpl(CourseModelImpl courseField, FieldOfStudyModelImpl fieldOfStudyField) {
+		this.courseField = courseField;
+		this.fieldOfStudyField = fieldOfStudyField;
+	}
+
+	Integer getIdField() {
+		return idField;
+	}
+
+	void setIdField(Integer idField) {
+		this.idField = idField;
+	}
+
+	CourseModelImpl getCourseField() {
+		return courseField;
+	}
+
+	void setCourseField(CourseModelImpl courseField) {
+		this.courseField = courseField;
+	}
+
+	FieldOfStudyModelImpl getFieldOfStudyField() {
+		return fieldOfStudyField;
+	}
+
+	void setFieldOfStudyField(FieldOfStudyModelImpl fieldOfStudyField) {
+		this.fieldOfStudyField = fieldOfStudyField;
+	}
 }
