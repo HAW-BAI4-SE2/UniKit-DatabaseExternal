@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface FieldOfStudyModel {
+public interface FieldOfStudyModel extends AbstractModel {
     Integer getId();
 
     String getName();

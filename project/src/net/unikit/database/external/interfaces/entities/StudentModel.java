@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface StudentModel {
+public interface StudentModel extends AbstractModel {
     String getStudentNumber();
     void setStudentNumber(String studentNumber);
 

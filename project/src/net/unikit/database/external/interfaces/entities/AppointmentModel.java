@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface AppointmentModel {
+public interface AppointmentModel extends AbstractModel {
     Integer getId();
 
     DidacticUnitModel getDidacticUnit();

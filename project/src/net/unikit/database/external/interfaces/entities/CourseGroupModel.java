@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface CourseGroupModel extends DidacticUnitModel {
+public interface CourseGroupModel extends DidacticUnitModel, AbstractModel {
     CourseModel getCourse();
     void setCourse(CourseModel course);
 
