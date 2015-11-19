@@ -5,9 +5,10 @@ package net.unikit.database.external.interfaces.entities;
  */
 public interface CourseToFieldOfStudyModel {
     Integer getId();
-    void setId(Integer id);
+
     CourseModel getCourse();
     void setCourse(CourseModel course);
+
     FieldOfStudyModel getFieldOfStudy();
     void setFieldOfStudy(FieldOfStudyModel fieldOfStudy);
 }

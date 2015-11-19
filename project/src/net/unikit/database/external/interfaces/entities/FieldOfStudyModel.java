@@ -7,12 +7,14 @@ import java.util.List;
  */
 public interface FieldOfStudyModel {
     Integer getId();
+
     String getName();
     void setName(String name);
+
     String getAbbreviation();
     void setAbbreviation(String abbreviation);
+
     List<CourseToFieldOfStudyModel> getCourseToFieldOfStudies();
-    void setCourseToFieldOfStudies(List<CourseToFieldOfStudyModel> courseToFieldOfStudies);
+
     List<StudentModel> getStudents();
-    void setStudents(List<StudentModel> students);
 }

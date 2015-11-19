@@ -8,16 +8,21 @@ import java.util.List;
 public interface StudentModel {
     String getStudentNumber();
     void setStudentNumber(String studentNumber);
+
     String getFirstName();
     void setFirstName(String firstName);
+
     String getLastName();
     void setLastName(String lastName);
+
     String getEmail();
     void setEmail(String email);
+
     FieldOfStudyModel getFieldOfStudy();
     void setFieldOfStudy(FieldOfStudyModel fieldOfStudy);
+
     int getSemester();
     void setSemester(int semester);
+
     List<CompletedCourseModel> getCompletedCourses();
-    void setCompletedCourses(List<CompletedCourseModel> completedCourses);
 }

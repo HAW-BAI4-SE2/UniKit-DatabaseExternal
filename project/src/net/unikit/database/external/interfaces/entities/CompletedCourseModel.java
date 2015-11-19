@@ -5,8 +5,10 @@ package net.unikit.database.external.interfaces.entities;
  */
 public interface CompletedCourseModel {
     Integer getId();
+
     StudentModel getStudent();
     void setStudent(StudentModel student);
+
     CourseModel getCourse();
     void setCourse(CourseModel course);
 }
