@@ -1,11 +1,11 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.AppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
+import net.unikit.database.external.interfaces.entities.CourseModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "COURSE_GROUP")
@@ -51,5 +51,45 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 
 	void setMaxGroupSizeField(int maxGroupSizeField) {
 		this.maxGroupSizeField = maxGroupSizeField;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public CourseModel getCourse() {
+		return null;
+	}
+
+	@Transient
+	public void setCourse(CourseModel course) {
+
+	}
+
+	@Transient
+	public int getGroupNumber() {
+		return 0;
+	}
+
+	@Transient
+	public void setGroupNumber(int groupNumber) {
+
+	}
+
+	@Transient
+	public int getMaxGroupSize() {
+		return 0;
+	}
+
+	@Transient
+	public void setMaxGroupSize(int maxGroupSize) {
+
+	}
+
+	@Transient
+	public List<AppointmentModel> getAppointments() {
+		return null;
 	}
 }

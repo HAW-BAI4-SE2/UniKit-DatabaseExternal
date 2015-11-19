@@ -1,5 +1,8 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.external.interfaces.entities.StudentModel;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -50,5 +53,30 @@ final class CompletedCourseModelImpl implements CompletedCourseModel {
 
 	void setCourseField(CourseModelImpl courseField) {
 		this.courseField = courseField;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public StudentModel getStudent() {
+		return null;
+	}
+
+	@Transient
+	public void setStudent(StudentModel student) {
+
+	}
+
+	@Transient
+	public CourseModel getCourse() {
+		return null;
+	}
+
+	@Transient
+	public void setCourse(CourseModel course) {
+
 	}
 }

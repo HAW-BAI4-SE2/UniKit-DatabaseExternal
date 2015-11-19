@@ -1,6 +1,7 @@
 package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
+import net.unikit.database.external.interfaces.entities.StudentModel;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -77,5 +78,35 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 
 	void setStudentModels(List<StudentModelImpl> studentModels) {
 		this.studentModels = studentModels;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public String getName() {
+		return null;
+	}
+
+	@Transient
+	public void setName(String name) {
+
+	}
+
+	@Transient
+	public String getAbbreviation() {
+		return null;
+	}
+
+	@Transient
+	public void setAbbreviation(String abbreviation) {
+
+	}
+
+	@Transient
+	public List<StudentModel> getStudents() {
+		return null;
 	}
 }

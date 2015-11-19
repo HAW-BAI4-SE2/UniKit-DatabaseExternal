@@ -1,6 +1,7 @@
 package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.AppointmentModel;
+import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -68,5 +69,40 @@ final class AppointmentModelImpl implements AppointmentModel {
 
 	void setEndDateField(Date endDateField) {
 		this.endDateField = endDateField;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public DidacticUnitModel getDidacticUnit() {
+		return null;
+	}
+
+	@Transient
+	public void setDidacticUnit(DidacticUnitModel didacticUnit) {
+
+	}
+
+	@Transient
+	public Date getStartDate() {
+		return null;
+	}
+
+	@Transient
+	public void setStartDate(Date startDate) {
+
+	}
+
+	@Transient
+	public Date getEndDate() {
+		return null;
+	}
+
+	@Transient
+	public void setEndDate(Date endDate) {
+
 	}
 }

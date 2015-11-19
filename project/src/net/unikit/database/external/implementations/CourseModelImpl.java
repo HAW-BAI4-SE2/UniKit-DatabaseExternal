@@ -1,6 +1,9 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.CourseGroupModel;
+import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -125,5 +128,80 @@ final class CourseModelImpl implements CourseModel {
 
 	void setCompletedCourseModels(List<CompletedCourseModelImpl> completedCourseModels) {
 		this.completedCourseModels = completedCourseModels;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public String getName() {
+		return null;
+	}
+
+	@Transient
+	public void setName(String name) {
+
+	}
+
+	@Transient
+	public String getAbbreviation() {
+		return null;
+	}
+
+	@Transient
+	public void setAbbreviation(String abbreviation) {
+
+	}
+
+	@Transient
+	public Integer getSemester() {
+		return null;
+	}
+
+	@Transient
+	public void setSemester(Integer semester) {
+
+	}
+
+	@Transient
+	public int getMinTeamSize() {
+		return 0;
+	}
+
+	@Transient
+	public void setMinTeamSize(int minTeamSize) {
+
+	}
+
+	@Transient
+	public int getMaxTeamSize() {
+		return 0;
+	}
+
+	@Transient
+	public void setMaxTeamSize(int maxTeamSize) {
+
+	}
+
+	@Transient
+	public CourseLectureModel getCourseLectureModel() {
+		return null;
+	}
+
+	@Transient
+	public void setCourseLectureModel(CourseLectureModel courseLectureModel) {
+
+	}
+
+	@Transient
+	public List<CourseGroupModel> getCourseGroupModels() {
+		return null;
+	}
+
+	@Transient
+	public List<FieldOfStudyModel> getFieldOfStudies() {
+		return null;
 	}
 }

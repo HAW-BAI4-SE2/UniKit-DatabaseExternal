@@ -1,5 +1,7 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
 
 import javax.persistence.*;
@@ -99,5 +101,70 @@ final class StudentModelImpl implements StudentModel {
 
 	void setCompletedCourseModels(List<CompletedCourseModelImpl> completedCourseModels) {
 		this.completedCourseModels = completedCourseModels;
+	}
+
+	@Transient
+	public String getStudentNumber() {
+		return null;
+	}
+
+	@Transient
+	public void setStudentNumber(String studentNumber) {
+
+	}
+
+	@Transient
+	public String getFirstName() {
+		return null;
+	}
+
+	@Transient
+	public void setFirstName(String firstName) {
+
+	}
+
+	@Transient
+	public String getLastName() {
+		return null;
+	}
+
+	@Transient
+	public void setLastName(String lastName) {
+
+	}
+
+	@Transient
+	public String getEmail() {
+		return null;
+	}
+
+	@Transient
+	public void setEmail(String email) {
+
+	}
+
+	@Transient
+	public FieldOfStudyModel getFieldOfStudy() {
+		return null;
+	}
+
+	@Transient
+	public void setFieldOfStudy(FieldOfStudyModel fieldOfStudy) {
+
+	}
+
+	@Transient
+	public int getSemester() {
+		return 0;
+	}
+
+	@Transient
+	public void setSemester(int semester) {
+
+	}
+
+	@Transient
+	public List<CourseModel> getCompletedCourses() {
+		return null;
 	}
 }

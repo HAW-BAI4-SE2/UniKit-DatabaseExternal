@@ -1,5 +1,7 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.AppointmentModel;
+import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 
 import javax.persistence.*;
@@ -54,5 +56,25 @@ final class DidacticUnitModelImpl implements DidacticUnitModel {
 
 	void setAppointmentModels(List<AppointmentModelImpl> appointmentModels) {
 		this.appointmentModels = appointmentModels;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public CourseModel getCourse() {
+		return null;
+	}
+
+	@Transient
+	public void setCourse(CourseModel course) {
+
+	}
+
+	@Transient
+	public List<AppointmentModel> getAppointments() {
+		return null;
 	}
 }

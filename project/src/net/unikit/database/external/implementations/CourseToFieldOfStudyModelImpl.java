@@ -1,5 +1,8 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -51,5 +54,30 @@ final class CourseToFieldOfStudyModelImpl implements CourseToFieldOfStudyModel {
 
 	void setFieldOfStudyField(FieldOfStudyModelImpl fieldOfStudyField) {
 		this.fieldOfStudyField = fieldOfStudyField;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public CourseModel getCourse() {
+		return null;
+	}
+
+	@Transient
+	public void setCourse(CourseModel course) {
+
+	}
+
+	@Transient
+	public FieldOfStudyModel getFieldOfStudy() {
+		return null;
+	}
+
+	@Transient
+	public void setFieldOfStudy(FieldOfStudyModel fieldOfStudy) {
+
 	}
 }

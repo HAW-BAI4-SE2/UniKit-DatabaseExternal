@@ -1,11 +1,11 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.external.interfaces.entities.AppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseLectureModel;
+import net.unikit.database.external.interfaces.entities.CourseModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "COURSE_LECTURE")
@@ -27,5 +27,25 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 
 	void setIdField(int idField) {
 		this.idField = idField;
+	}
+
+	@Transient
+	public Integer getId() {
+		return null;
+	}
+
+	@Transient
+	public CourseModel getCourse() {
+		return null;
+	}
+
+	@Transient
+	public void setCourse(CourseModel course) {
+
+	}
+
+	@Transient
+	public List<AppointmentModel> getAppointments() {
+		return null;
 	}
 }
