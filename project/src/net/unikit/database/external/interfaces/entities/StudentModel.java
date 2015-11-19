@@ -24,5 +24,5 @@ public interface StudentModel {
     int getSemester();
     void setSemester(int semester);
 
-    List<CompletedCourseModel> getCompletedCourses();
+    List<CourseModel> getCompletedCourses();
 }

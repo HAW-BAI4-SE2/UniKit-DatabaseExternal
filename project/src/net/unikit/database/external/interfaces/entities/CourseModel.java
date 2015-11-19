@@ -25,7 +25,5 @@ public interface CourseModel {
 
     List<DidacticUnitModel> getDidacticUnits();
 
-    List<CourseToFieldOfStudyModel> getCourseToFieldOfStudies();
-
-    List<CompletedCourseModel> getCompletedCourses();
+    List<FieldOfStudyModel> getFieldOfStudies();
 }

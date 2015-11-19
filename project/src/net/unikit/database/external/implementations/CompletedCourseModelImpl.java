@@ -1,7 +1,5 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.CompletedCourseModel;
-
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;

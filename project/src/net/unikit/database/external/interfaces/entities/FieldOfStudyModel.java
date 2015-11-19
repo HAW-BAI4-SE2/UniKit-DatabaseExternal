@@ -14,7 +14,5 @@ public interface FieldOfStudyModel {
     String getAbbreviation();
     void setAbbreviation(String abbreviation);
 
-    List<CourseToFieldOfStudyModel> getCourseToFieldOfStudies();
-
     List<StudentModel> getStudents();
 }
