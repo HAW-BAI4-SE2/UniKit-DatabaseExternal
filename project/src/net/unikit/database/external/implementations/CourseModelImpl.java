@@ -186,17 +186,17 @@ final class CourseModelImpl implements CourseModel {
 	}
 
 	@Transient
-	public CourseLectureModel getCourseLectureModel() {
+	public CourseLectureModel getCourseLecture() {
 		return null;
 	}
 
 	@Transient
-	public void setCourseLectureModel(CourseLectureModel courseLectureModel) {
+	public void setCourseLecture(CourseLectureModel courseLecture) {
 
 	}
 
 	@Transient
-	public List<CourseGroupModel> getCourseGroupModels() {
+	public List<CourseGroupModel> getCourseGroups() {
 		return null;
 	}
 

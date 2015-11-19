@@ -13,6 +13,4 @@ public interface FieldOfStudyModel extends AbstractModel {
 
     String getAbbreviation();
     void setAbbreviation(String abbreviation);
-
-    List<StudentModel> getStudents();
 }

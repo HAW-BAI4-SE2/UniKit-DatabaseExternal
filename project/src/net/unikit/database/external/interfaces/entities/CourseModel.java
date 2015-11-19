@@ -23,10 +23,10 @@ public interface CourseModel extends AbstractModel {
     int getMaxTeamSize();
     void setMaxTeamSize(int maxTeamSize);
 
-    CourseLectureModel getCourseLectureModel();
-    void setCourseLectureModel(CourseLectureModel courseLectureModel);
+    CourseLectureModel getCourseLecture();
+    void setCourseLecture(CourseLectureModel courseLecture);
 
-    List<CourseGroupModel> getCourseGroupModels();
+    List<CourseGroupModel> getCourseGroups();
 
     List<FieldOfStudyModel> getFieldOfStudies();
 }

@@ -104,9 +104,4 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 	public void setAbbreviation(String abbreviation) {
 
 	}
-
-	@Transient
-	public List<StudentModel> getStudents() {
-		return null;
-	}
 }
