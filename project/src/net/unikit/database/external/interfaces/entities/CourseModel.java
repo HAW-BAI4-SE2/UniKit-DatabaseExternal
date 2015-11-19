@@ -23,7 +23,10 @@ public interface CourseModel {
     int getMaxTeamSize();
     void setMaxTeamSize(int maxTeamSize);
 
-    List<DidacticUnitModel> getDidacticUnits();
+    CourseLectureModel getCourseLectureModel();
+    void setCourseLectureModel(CourseLectureModel courseLectureModel);
+
+    List<CourseGroupModel> getCourseGroupModels();
 
     List<FieldOfStudyModel> getFieldOfStudies();
 }

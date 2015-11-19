@@ -1,14 +1,19 @@
 package net.unikit.database.external.interfaces.entities;
 
+import java.util.List;
+
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface CourseGroupModel {
-    int getId();
+public interface CourseGroupModel extends DidacticUnitModel {
+    CourseModel getCourse();
+    void setCourse(CourseModel course);
 
     int getGroupNumber();
     void setGroupNumber(int groupNumber);
 
     int getMaxGroupSize();
     void setMaxGroupSize(int maxGroupSize);
+
+    List<AppointmentModel> getAppointments();
 }
