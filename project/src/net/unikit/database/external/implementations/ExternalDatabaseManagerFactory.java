@@ -8,6 +8,6 @@ import net.unikit.database.interfaces.DatabaseConfiguration;
  */
 public final class ExternalDatabaseManagerFactory {
     public static ExternalDatabaseManager createExternalDatabaseManager(DatabaseConfiguration databaseConfiguration) {
-        throw new UnsupportedOperationException();
+        return ExternalDatabaseManagerImpl.create(databaseConfiguration);
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface CourseModel extends AbstractModel {
+public interface CourseModel extends AbstractModel<Integer> {
     Integer getId();
 
     String getName();

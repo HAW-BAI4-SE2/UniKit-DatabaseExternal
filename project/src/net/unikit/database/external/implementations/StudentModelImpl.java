@@ -167,4 +167,9 @@ final class StudentModelImpl implements StudentModel {
 	public List<CourseModel> getCompletedCourses() {
 		return null;
 	}
+
+	@Transient
+	public String getId() {
+		return getStudentNumber();
+	}
 }
