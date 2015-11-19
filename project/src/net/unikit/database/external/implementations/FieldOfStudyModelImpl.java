@@ -1,6 +1,6 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.FieldOfStudyModel;
+import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "FIELD_OF_STUDY", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "abbreviation"), @UniqueConstraint(columnNames = "name") })
-public class FieldOfStudyModelImpl implements FieldOfStudyModel {
+final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

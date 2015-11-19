@@ -1,16 +1,12 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.StudentModel;
+import net.unikit.database.external.interfaces.entities.StudentModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "STUDENT", uniqueConstraints = @UniqueConstraint(columnNames = "email") )
-public class StudentModelImpl implements StudentModel {
+final class StudentModelImpl implements StudentModel {
 	@Id
 	@Column(name = "student_number", unique = true, nullable = false, length = 31)
 	private String studentNumber;
@@ -24,8 +20,9 @@ public class StudentModelImpl implements StudentModel {
 	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "field_of_study_id", nullable = false)
-	private int fieldOfStudyId;
+	@ManyToOne
+	@JoinColumn(name = "field_of_study_id", nullable = false)
+	private FieldOfStudyModelImpl fieldOfStudy;
 
 	@Column(name = "semester", nullable = false)
 	private int semester;

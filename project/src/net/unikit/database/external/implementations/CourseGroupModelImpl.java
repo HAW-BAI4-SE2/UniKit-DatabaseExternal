@@ -1,6 +1,6 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.CourseGroupModel;
+import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COURSE_GROUP")
-public class CourseGroupModelImpl implements CourseGroupModel {
+final class CourseGroupModelImpl implements CourseGroupModel {
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;

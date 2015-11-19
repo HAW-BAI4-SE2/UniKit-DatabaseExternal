@@ -1,22 +1,20 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.DidacticUnitModel;
+import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "DIDACTIC_UNIT")
-public class DidacticUnitModelImpl implements DidacticUnitModel {
+final class DidacticUnitModelImpl implements DidacticUnitModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
 
-	@Column(name = "course_id", nullable = false)
-	private int courseId;
+	@ManyToOne
+	@JoinColumn(name = "course_id", nullable = false)
+	private CourseModelImpl course;
 }
