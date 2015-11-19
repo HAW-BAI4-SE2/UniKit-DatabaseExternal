@@ -13,13 +13,13 @@ final class CourseToFieldOfStudyModelImpl implements CourseToFieldOfStudyModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private Integer id;
+	private Integer idField;
 
 	@ManyToOne
 	@JoinColumn(name = "course_id", nullable = false)
-	private CourseModelImpl course;
+	private CourseModelImpl courseField;
 
 	@ManyToOne
 	@JoinColumn(name = "field_of_study_id", nullable = false)
-	private FieldOfStudyModelImpl fieldOfStudy;
+	private FieldOfStudyModelImpl fieldOfStudyField;
 }

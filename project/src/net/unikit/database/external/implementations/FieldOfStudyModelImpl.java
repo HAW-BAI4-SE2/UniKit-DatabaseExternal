@@ -15,17 +15,67 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private Integer id;
+	private Integer idField;
 
 	@Column(name = "name", unique = true, nullable = false, length = 63)
-	private String name;
+	private String nameField;
 
 	@Column(name = "abbreviation", unique = true, nullable = false, length = 31)
-	private String abbreviation;
+	private String abbreviationField;
 
 	@OneToMany(mappedBy = "fieldOfStudyField")
 	private List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels = new ArrayList<>();
 
 	@OneToMany(mappedBy = "fieldOfStudyField")
 	private List<StudentModelImpl> studentModels = new ArrayList<>();
+
+	public FieldOfStudyModelImpl() {
+	}
+
+	public FieldOfStudyModelImpl(String nameField, String abbreviationField, List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels, List<StudentModelImpl> studentModels) {
+		this.nameField = nameField;
+		this.abbreviationField = abbreviationField;
+		this.courseToFieldOfStudyModels = courseToFieldOfStudyModels;
+		this.studentModels = studentModels;
+	}
+
+	Integer getIdField() {
+		return idField;
+	}
+
+	void setIdField(Integer idField) {
+		this.idField = idField;
+	}
+
+	String getNameField() {
+		return nameField;
+	}
+
+	void setNameField(String nameField) {
+		this.nameField = nameField;
+	}
+
+	String getAbbreviationField() {
+		return abbreviationField;
+	}
+
+	void setAbbreviationField(String abbreviationField) {
+		this.abbreviationField = abbreviationField;
+	}
+
+	List<CourseToFieldOfStudyModelImpl> getCourseToFieldOfStudyModels() {
+		return courseToFieldOfStudyModels;
+	}
+
+	void setCourseToFieldOfStudyModels(List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels) {
+		this.courseToFieldOfStudyModels = courseToFieldOfStudyModels;
+	}
+
+	List<StudentModelImpl> getStudentModels() {
+		return studentModels;
+	}
+
+	void setStudentModels(List<StudentModelImpl> studentModels) {
+		this.studentModels = studentModels;
+	}
 }

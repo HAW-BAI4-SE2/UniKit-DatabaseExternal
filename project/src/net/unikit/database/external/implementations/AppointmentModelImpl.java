@@ -15,17 +15,58 @@ final class AppointmentModelImpl implements AppointmentModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private Integer id;
+	private Integer idField;
 
 	@ManyToOne
 	@JoinColumn(name = "didactic_unit_id", nullable = false)
-	private DidacticUnitModelImpl didacticUnit;
+	private DidacticUnitModelImpl didacticUnitField;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "start_date", nullable = false, length = 19)
-	private Date startDate;
+	private Date startDateField;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "end_date", nullable = false, length = 19)
-	private Date endDate;
+	private Date endDateField;
+
+	public AppointmentModelImpl() {
+	}
+
+	public AppointmentModelImpl(DidacticUnitModelImpl didacticUnitField, Date startDateField, Date endDateField) {
+		this.didacticUnitField = didacticUnitField;
+		this.startDateField = startDateField;
+		this.endDateField = endDateField;
+	}
+
+	Integer getIdField() {
+		return idField;
+	}
+
+	void setIdField(Integer idField) {
+		this.idField = idField;
+	}
+
+	DidacticUnitModelImpl getDidacticUnitField() {
+		return didacticUnitField;
+	}
+
+	void setDidacticUnitField(DidacticUnitModelImpl didacticUnitField) {
+		this.didacticUnitField = didacticUnitField;
+	}
+
+	Date getStartDateField() {
+		return startDateField;
+	}
+
+	void setStartDateField(Date startDateField) {
+		this.startDateField = startDateField;
+	}
+
+	Date getEndDateField() {
+		return endDateField;
+	}
+
+	void setEndDateField(Date endDateField) {
+		this.endDateField = endDateField;
+	}
 }

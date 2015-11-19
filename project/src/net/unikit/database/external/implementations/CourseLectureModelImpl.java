@@ -12,5 +12,20 @@ import javax.persistence.Table;
 final class CourseLectureModelImpl implements CourseLectureModel {
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
-	private int id;
+	private int idField;
+
+	public CourseLectureModelImpl() {
+	}
+
+	public CourseLectureModelImpl(int idField) {
+		this.idField = idField;
+	}
+
+	int getIdField() {
+		return idField;
+	}
+
+	void setIdField(int idField) {
+		this.idField = idField;
+	}
 }

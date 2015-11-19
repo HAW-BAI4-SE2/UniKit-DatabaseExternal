@@ -11,24 +11,93 @@ import java.util.List;
 final class StudentModelImpl implements StudentModel {
 	@Id
 	@Column(name = "student_number", unique = true, nullable = false, length = 31)
-	private String studentNumber;
+	private String studentNumberField;
 
 	@Column(name = "first_name", nullable = false, length = 63)
-	private String firstName;
+	private String firstNameField;
 
 	@Column(name = "last_name", nullable = false, length = 63)
-	private String lastName;
+	private String lastNameField;
 
 	@Column(name = "email", unique = true, nullable = false)
-	private String email;
+	private String emailField;
 
 	@ManyToOne
 	@JoinColumn(name = "field_of_study_id", nullable = false)
-	private FieldOfStudyModelImpl fieldOfStudy;
+	private FieldOfStudyModelImpl fieldOfStudyField;
 
 	@Column(name = "semester", nullable = false)
-	private int semester;
+	private int semesterField;
 
 	@OneToMany(mappedBy = "studentField")
 	private List<CompletedCourseModelImpl> completedCourseModels = new ArrayList<>();
+
+	public StudentModelImpl() {
+	}
+
+	public StudentModelImpl(String studentNumberField, String firstNameField, String lastNameField, String emailField, FieldOfStudyModelImpl fieldOfStudyField, int semesterField, List<CompletedCourseModelImpl> completedCourseModels) {
+		this.studentNumberField = studentNumberField;
+		this.firstNameField = firstNameField;
+		this.lastNameField = lastNameField;
+		this.emailField = emailField;
+		this.fieldOfStudyField = fieldOfStudyField;
+		this.semesterField = semesterField;
+		this.completedCourseModels = completedCourseModels;
+	}
+
+	String getStudentNumberField() {
+		return studentNumberField;
+	}
+
+	void setStudentNumberField(String studentNumberField) {
+		this.studentNumberField = studentNumberField;
+	}
+
+	String getFirstNameField() {
+		return firstNameField;
+	}
+
+	void setFirstNameField(String firstNameField) {
+		this.firstNameField = firstNameField;
+	}
+
+	String getLastNameField() {
+		return lastNameField;
+	}
+
+	void setLastNameField(String lastNameField) {
+		this.lastNameField = lastNameField;
+	}
+
+	String getEmailField() {
+		return emailField;
+	}
+
+	void setEmailField(String emailField) {
+		this.emailField = emailField;
+	}
+
+	FieldOfStudyModelImpl getFieldOfStudyField() {
+		return fieldOfStudyField;
+	}
+
+	void setFieldOfStudyField(FieldOfStudyModelImpl fieldOfStudyField) {
+		this.fieldOfStudyField = fieldOfStudyField;
+	}
+
+	int getSemesterField() {
+		return semesterField;
+	}
+
+	void setSemesterField(int semesterField) {
+		this.semesterField = semesterField;
+	}
+
+	List<CompletedCourseModelImpl> getCompletedCourseModels() {
+		return completedCourseModels;
+	}
+
+	void setCompletedCourseModels(List<CompletedCourseModelImpl> completedCourseModels) {
+		this.completedCourseModels = completedCourseModels;
+	}
 }

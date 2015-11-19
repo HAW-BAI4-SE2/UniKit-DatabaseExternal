@@ -12,11 +12,44 @@ import javax.persistence.Table;
 final class CourseGroupModelImpl implements CourseGroupModel {
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
-	private int id;
+	private int idField;
 
 	@Column(name = "group_number", nullable = false)
-	private int groupNumber;
+	private int groupNumberField;
 
 	@Column(name = "max_group_size", nullable = false)
-	private int maxGroupSize;
+	private int maxGroupSizeField;
+
+	public CourseGroupModelImpl() {
+	}
+
+	public CourseGroupModelImpl(int idField, int groupNumberField, int maxGroupSizeField) {
+		this.idField = idField;
+		this.groupNumberField = groupNumberField;
+		this.maxGroupSizeField = maxGroupSizeField;
+	}
+
+	int getIdField() {
+		return idField;
+	}
+
+	void setIdField(int idField) {
+		this.idField = idField;
+	}
+
+	int getGroupNumberField() {
+		return groupNumberField;
+	}
+
+	void setGroupNumberField(int groupNumberField) {
+		this.groupNumberField = groupNumberField;
+	}
+
+	int getMaxGroupSizeField() {
+		return maxGroupSizeField;
+	}
+
+	void setMaxGroupSizeField(int maxGroupSizeField) {
+		this.maxGroupSizeField = maxGroupSizeField;
+	}
 }
