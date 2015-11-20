@@ -1,6 +1,5 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 import net.unikit.database.external.interfaces.managers.AbstractModelManager;
 
 /**

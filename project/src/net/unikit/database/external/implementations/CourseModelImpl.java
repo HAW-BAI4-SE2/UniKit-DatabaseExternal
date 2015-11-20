@@ -33,8 +33,11 @@ final class CourseModelImpl implements CourseModel {
 	@Column(name = "max_team_size", nullable = false)
 	private int maxTeamSizeField;
 
+	@OneToOne(mappedBy = "courseField")
+	private CourseLectureModelImpl courseLectureField;
+
 	@OneToMany(mappedBy = "courseField")
-	private List<DidacticUnitModelImpl> didacticUnitModels = new ArrayList<>();
+	private List<CourseGroupModelImpl> courseGroupModels = new ArrayList<>();
 
 	@OneToMany(mappedBy = "courseField")
 	private List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels = new ArrayList<>();
@@ -45,13 +48,14 @@ final class CourseModelImpl implements CourseModel {
 	public CourseModelImpl() {
 	}
 
-	public CourseModelImpl(String nameField, String abbreviationField, Integer semesterField, int minTeamSizeField, int maxTeamSizeField, List<DidacticUnitModelImpl> didacticUnitModels, List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels, List<CompletedCourseModelImpl> completedCourseModels) {
+	public CourseModelImpl(String nameField, String abbreviationField, Integer semesterField, int minTeamSizeField, int maxTeamSizeField, CourseLectureModelImpl courseLectureField, List<CourseGroupModelImpl> courseGroupModels, List<CourseToFieldOfStudyModelImpl> courseToFieldOfStudyModels, List<CompletedCourseModelImpl> completedCourseModels) {
 		this.nameField = nameField;
 		this.abbreviationField = abbreviationField;
 		this.semesterField = semesterField;
 		this.minTeamSizeField = minTeamSizeField;
 		this.maxTeamSizeField = maxTeamSizeField;
-		this.didacticUnitModels = didacticUnitModels;
+		this.courseLectureField = courseLectureField;
+		this.courseGroupModels = courseGroupModels;
 		this.courseToFieldOfStudyModels = courseToFieldOfStudyModels;
 		this.completedCourseModels = completedCourseModels;
 	}
@@ -104,12 +108,20 @@ final class CourseModelImpl implements CourseModel {
 		this.maxTeamSizeField = maxTeamSizeField;
 	}
 
-	List<DidacticUnitModelImpl> getDidacticUnitModels() {
-		return didacticUnitModels;
+	public CourseLectureModelImpl getCourseLectureField() {
+		return courseLectureField;
 	}
 
-	void setDidacticUnitModels(List<DidacticUnitModelImpl> didacticUnitModels) {
-		this.didacticUnitModels = didacticUnitModels;
+	public void setCourseLectureField(CourseLectureModelImpl courseLectureField) {
+		this.courseLectureField = courseLectureField;
+	}
+
+	List<CourseGroupModelImpl> getCourseGroupModels() {
+		return courseGroupModels;
+	}
+
+	void setCourseGroupModels(List<CourseGroupModelImpl> courseGroupModels) {
+		this.courseGroupModels = courseGroupModels;
 	}
 
 	List<CourseToFieldOfStudyModelImpl> getCourseToFieldOfStudyModels() {
@@ -185,21 +197,12 @@ final class CourseModelImpl implements CourseModel {
 
 	@Transient
 	public CourseLectureModel getCourseLecture() {
-		for (DidacticUnitModel didacticUnit : getDidacticUnitModels()) {
-			if (didacticUnit instanceof CourseLectureModel)
-				return (CourseLectureModel) didacticUnit;
-		}
-		return null;
+		return getCourseLectureField();
 	}
 
 	@Transient
 	public List<CourseGroupModel> getCourseGroups() {
-		ImmutableList.Builder<CourseGroupModel> builder = ImmutableList.builder();
-		for (DidacticUnitModel didacticUnit : getDidacticUnitModels()) {
-			if (didacticUnit instanceof CourseGroupModel)
-				builder.add((CourseGroupModel) didacticUnit);
-		}
-		return builder.build();
+		return ImmutableList.copyOf(getCourseGroupModels());
 	}
 
 	@Transient

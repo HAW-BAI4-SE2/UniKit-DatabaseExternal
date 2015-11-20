@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface CourseLectureModel extends DidacticUnitModel, AbstractModel<Integer> {
+public interface CourseLectureModel extends AbstractModel<Integer> {
     Integer getId();
 
     CourseModel getCourse();
     void setCourse(CourseModel course);
 
-    List<AppointmentModel> getAppointments();
+    List<CourseLectureAppointmentModel> getAppointments();
 }

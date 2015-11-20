@@ -1,7 +1,7 @@
 package net.unikit.database.external.implementations;
 
 import com.google.common.collect.ImmutableList;
-import net.unikit.database.external.interfaces.entities.AppointmentModel;
+import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 
@@ -29,13 +29,13 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 	@Column(name = "max_group_size", nullable = false)
 	private int maxGroupSizeField;
 
-	@OneToMany(mappedBy = "didacticUnitField")
-	private List<AppointmentModelImpl> appointmentModels = new ArrayList<>();
+	@OneToMany(mappedBy = "courseGroupField")
+	private List<CourseGroupAppointmentModelImpl> appointmentModels = new ArrayList<>();
 
 	public CourseGroupModelImpl() {
 	}
 
-	public CourseGroupModelImpl(CourseModelImpl courseField, int groupNumberField, int maxGroupSizeField, List<AppointmentModelImpl> appointmentModels) {
+	public CourseGroupModelImpl(CourseModelImpl courseField, int groupNumberField, int maxGroupSizeField, List<CourseGroupAppointmentModelImpl> appointmentModels) {
 		this.courseField = courseField;
 		this.groupNumberField = groupNumberField;
 		this.maxGroupSizeField = maxGroupSizeField;
@@ -74,11 +74,11 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 		this.maxGroupSizeField = maxGroupSizeField;
 	}
 
-	List<AppointmentModelImpl> getAppointmentModels() {
+	List<CourseGroupAppointmentModelImpl> getAppointmentModels() {
 		return appointmentModels;
 	}
 
-	void setAppointmentModels(List<AppointmentModelImpl> appointmentModels) {
+	void setAppointmentModels(List<CourseGroupAppointmentModelImpl> appointmentModels) {
 		this.appointmentModels = appointmentModels;
 	}
 
@@ -118,7 +118,7 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 	}
 
 	@Transient
-	public List<AppointmentModel> getAppointments() {
+	public List<CourseGroupAppointmentModel> getAppointments() {
 		return ImmutableList.copyOf(getAppointmentModels());
 	}
 }

@@ -1,26 +1,26 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.AppointmentModel;
-import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
+import net.unikit.database.external.interfaces.entities.CourseLectureAppointmentModel;
+import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "APPOINTMENT", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "didactic_unit_id", "end_date" }),
-		@UniqueConstraint(columnNames = { "didactic_unit_id", "start_date" }) })
-final class AppointmentModelImpl implements AppointmentModel {
+		@UniqueConstraint(columnNames = { "course_lecture_id", "end_date" }),
+		@UniqueConstraint(columnNames = { "course_lecture_id", "start_date" }) })
+final class CourseLectureAppointmentModelImpl implements CourseLectureAppointmentModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer idField;
 
 	@ManyToOne
-	@JoinColumn(name = "didactic_unit_id", nullable = false)
-	private DidacticUnitModelImpl didacticUnitField;
+	@JoinColumn(name = "course_lecture_id", nullable = false)
+	private CourseLectureModelImpl courseLectureField;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "start_date", nullable = false, length = 19)
@@ -30,11 +30,11 @@ final class AppointmentModelImpl implements AppointmentModel {
 	@Column(name = "end_date", nullable = false, length = 19)
 	private Date endDateField;
 
-	public AppointmentModelImpl() {
+	public CourseLectureAppointmentModelImpl() {
 	}
 
-	public AppointmentModelImpl(DidacticUnitModelImpl didacticUnitField, Date startDateField, Date endDateField) {
-		this.didacticUnitField = didacticUnitField;
+	public CourseLectureAppointmentModelImpl(CourseLectureModelImpl courseLectureField, Date startDateField, Date endDateField) {
+		this.courseLectureField = courseLectureField;
 		this.startDateField = startDateField;
 		this.endDateField = endDateField;
 	}
@@ -47,12 +47,12 @@ final class AppointmentModelImpl implements AppointmentModel {
 		this.idField = idField;
 	}
 
-	DidacticUnitModelImpl getDidacticUnitField() {
-		return didacticUnitField;
+	CourseLectureModelImpl getCourseLectureField() {
+		return courseLectureField;
 	}
 
-	void setDidacticUnitField(DidacticUnitModelImpl didacticUnitField) {
-		this.didacticUnitField = didacticUnitField;
+	void setCourseLectureField(CourseLectureModelImpl courseLectureField) {
+		this.courseLectureField = courseLectureField;
 	}
 
 	Date getStartDateField() {
@@ -77,13 +77,13 @@ final class AppointmentModelImpl implements AppointmentModel {
 	}
 
 	@Transient
-	public DidacticUnitModel getDidacticUnit() {
-		return getDidacticUnitField();
+	public CourseLectureModel getCourseLecture() {
+		return getCourseLectureField();
 	}
 
 	@Transient
-	public void setDidacticUnit(DidacticUnitModel didacticUnit) {
-		setDidacticUnitField((DidacticUnitModelImpl) didacticUnit);
+	public void setCourseLecture(CourseLectureModel courseGroup) {
+		setCourseLectureField((CourseLectureModelImpl) courseGroup);
 	}
 
 	@Transient

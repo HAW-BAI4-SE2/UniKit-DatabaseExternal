@@ -1,7 +1,8 @@
 package net.unikit.database.external.implementations;
 
 import com.google.common.collect.ImmutableList;
-import net.unikit.database.external.interfaces.entities.AppointmentModel;
+import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentModel;
+import net.unikit.database.external.interfaces.entities.CourseLectureAppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 
@@ -23,8 +24,8 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 	@JoinColumn(name = "course_id", nullable = false)
 	private CourseModelImpl courseField;
 
-	@OneToMany(mappedBy = "didacticUnitField")
-	private List<AppointmentModelImpl> appointmentModels = new ArrayList<>();
+	@OneToMany(mappedBy = "courseLectureField")
+	private List<CourseLectureAppointmentModelImpl> appointmentModels = new ArrayList<>();
 
 	public CourseLectureModelImpl() {
 	}
@@ -49,11 +50,11 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 		this.courseField = courseField;
 	}
 
-	List<AppointmentModelImpl> getAppointmentModels() {
+	List<CourseLectureAppointmentModelImpl> getAppointmentModels() {
 		return appointmentModels;
 	}
 
-	void setAppointmentModels(List<AppointmentModelImpl> appointmentModels) {
+	void setAppointmentModels(List<CourseLectureAppointmentModelImpl> appointmentModels) {
 		this.appointmentModels = appointmentModels;
 	}
 
@@ -73,7 +74,7 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 	}
 
 	@Transient
-	public List<AppointmentModel> getAppointments() {
+	public List<CourseLectureAppointmentModel> getAppointments() {
 		return ImmutableList.copyOf(getAppointmentModels());
 	}
 }

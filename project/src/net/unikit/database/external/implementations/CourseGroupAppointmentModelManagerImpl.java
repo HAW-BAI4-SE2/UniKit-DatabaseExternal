@@ -1,0 +1,45 @@
+package net.unikit.database.external.implementations;
+
+import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentModel;
+import net.unikit.database.external.interfaces.managers.CourseGroupAppointmentModelManager;
+import org.hibernate.SessionFactory;
+
+/**
+ * Created by Andreas on 20.11.2015.
+ */
+final class CourseGroupAppointmentModelManagerImpl
+        extends AbstractModelManagerImpl<CourseGroupAppointmentModel, Integer, CourseGroupAppointmentModelImpl, Integer>
+        implements CourseGroupAppointmentModelManager {
+    private CourseGroupAppointmentModelManagerImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
+    }
+
+    public static CourseGroupAppointmentModelManager create(SessionFactory sessionFactory) {
+        return new CourseGroupAppointmentModelManagerImpl(sessionFactory);
+    }
+
+    @Override
+    public CourseGroupAppointmentModel createEntity() {
+        return new CourseGroupAppointmentModelImpl();
+    }
+
+    @Override
+    protected Integer createIdFromBaseIdType(Integer id) {
+        return id;
+    }
+
+    @Override
+    protected Integer createBaseIdFromIdType(Integer id) {
+        return id;
+    }
+
+    @Override
+    protected Class getAnnotatedClass() {
+        return CourseGroupAppointmentModelImpl.class;
+    }
+
+    @Override
+    protected void updateDatabaseFields(CourseGroupAppointmentModelImpl entityOld, CourseGroupAppointmentModelImpl entityNew) {
+
+    }
+}

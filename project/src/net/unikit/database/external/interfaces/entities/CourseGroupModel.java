@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface CourseGroupModel extends DidacticUnitModel, AbstractModel<Integer> {
+public interface CourseGroupModel extends AbstractModel<Integer> {
     Integer getId();
 
     CourseModel getCourse();
@@ -17,5 +17,5 @@ public interface CourseGroupModel extends DidacticUnitModel, AbstractModel<Integ
     int getMaxGroupSize();
     void setMaxGroupSize(int maxGroupSize);
 
-    List<AppointmentModel> getAppointments();
+    List<CourseGroupAppointmentModel> getAppointments();
 }

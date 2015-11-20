@@ -5,11 +5,11 @@ import java.util.Date;
 /**
  * Created by Andreas on 19.11.2015.
  */
-public interface AppointmentModel extends AbstractModel<Integer> {
+public interface CourseLectureAppointmentModel extends AbstractModel<Integer> {
     Integer getId();
 
-    DidacticUnitModel getDidacticUnit();
-    void setDidacticUnit(DidacticUnitModel didacticUnit);
+    CourseLectureModel getCourseLecture();
+    void setCourseLecture(CourseLectureModel courseLecture);
 
     Date getStartDate();
     void setStartDate(Date startDate);

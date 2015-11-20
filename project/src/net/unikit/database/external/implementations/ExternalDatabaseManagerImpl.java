@@ -15,9 +15,9 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
     private FieldOfStudyModelManager fieldOfStudyManager;
     private CourseModelManager courseManager;
     private CourseToFieldOfStudyModelManager courseToFieldOfStudyManager;
-    private DidacticUnitModelManager didacticUnitManager;
-    private AppointmentModelManager appointmentManager;
+    private CourseGroupAppointmentModelManager courseGroupAppointmentManager;
     private CourseGroupModelManager courseGroupManager;
+    private CourseLectureAppointmentModelManager courseLectureAppointmentManager;
     private CourseLectureModelManager courseLectureManager;
     private StudentModelManager studentManager;
     private CompletedCourseModelManager completedCourseManager;
@@ -45,9 +45,9 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
         configuration.addAnnotatedClass(FieldOfStudyModelImpl.class);
         configuration.addAnnotatedClass(CourseModelImpl.class);
         configuration.addAnnotatedClass(CourseToFieldOfStudyModelImpl.class);
-        configuration.addAnnotatedClass(DidacticUnitModelImpl.class);
-        configuration.addAnnotatedClass(AppointmentModelImpl.class);
+        configuration.addAnnotatedClass(CourseGroupAppointmentModelImpl.class);
         configuration.addAnnotatedClass(CourseGroupModelImpl.class);
+        configuration.addAnnotatedClass(CourseLectureAppointmentModelImpl.class);
         configuration.addAnnotatedClass(CourseLectureModelImpl.class);
         configuration.addAnnotatedClass(StudentModelImpl.class);
         configuration.addAnnotatedClass(CompletedCourseModelImpl.class);
@@ -57,9 +57,9 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
         fieldOfStudyManager = FieldOfStudyModelManagerImpl.create(sessionFactory);
         courseManager = CourseModelManagerImpl.create(sessionFactory);
         courseToFieldOfStudyManager = CourseToFieldOfStudyModelManagerImpl.create(sessionFactory);
-        didacticUnitManager = DidacticUnitModelManagerImpl.create(sessionFactory);
-        appointmentManager = AppointmentModelManagerImpl.create(sessionFactory);
+        courseGroupAppointmentManager = CourseGroupAppointmentModelManagerImpl.create(sessionFactory);
         courseGroupManager = CourseGroupModelManagerImpl.create(sessionFactory);
+        courseLectureAppointmentManager = CourseLectureAppointmentModelManagerImpl.create(sessionFactory);
         courseLectureManager = CourseLectureModelManagerImpl.create(sessionFactory);
         studentManager = StudentModelManagerImpl.create(sessionFactory);
         completedCourseManager = CompletedCourseModelManagerImpl.create(sessionFactory);
@@ -71,9 +71,9 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
         this.fieldOfStudyManager = null;
         this.courseManager = null;
         this.courseToFieldOfStudyManager = null;
-        this.didacticUnitManager = null;
-        this.appointmentManager = null;
+        this.courseGroupAppointmentManager = null;
         this.courseGroupManager = null;
+        this.courseLectureAppointmentManager = null;
         this.courseLectureManager = null;
         this.studentManager = null;
         this.completedCourseManager = null;
@@ -85,14 +85,20 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
         return new ExternalDatabaseManagerImpl(databaseConfiguration);
     }
 
+
     @Override
-    public AppointmentModelManager getAppointmentModelManager() {
-        return appointmentManager;
+    public CourseGroupAppointmentModelManager getCourseGroupAppointmentModelManager() {
+        return courseGroupAppointmentManager;
     }
 
     @Override
     public CourseGroupModelManager getCourseGroupModelManager() {
         return courseGroupManager;
+    }
+
+    @Override
+    public CourseLectureAppointmentModelManager getCourseLectureAppointmentModelManager() {
+        return courseLectureAppointmentManager;
     }
 
     @Override
@@ -103,11 +109,6 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
     @Override
     public CourseModelManager getCourseModelManager() {
         return courseManager;
-    }
-
-    @Override
-    public DidacticUnitModelManager getDidacticUnitModelManager() {
-        return didacticUnitManager;
     }
 
     @Override
