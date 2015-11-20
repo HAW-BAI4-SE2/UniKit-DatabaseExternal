@@ -14,10 +14,13 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
     private SessionFactory sessionFactory;
     private FieldOfStudyModelManager fieldOfStudyManager;
     private CourseModelManager courseManager;
+    private CourseToFieldOfStudyModelManager courseToFieldOfStudyManager;
+    private DidacticUnitModelManager didacticUnitManager;
     private AppointmentModelManager appointmentManager;
     private CourseGroupModelManager courseGroupManager;
     private CourseLectureModelManager courseLectureManager;
     private StudentModelManager studentManager;
+    private CompletedCourseModelManager completedCourseManager;
 
     private void validate() throws NullPointerException {
         checkNotNull(databaseConfiguration, "value of 'databaseConfiguration' is null!");
@@ -53,10 +56,13 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
 
         fieldOfStudyManager = FieldOfStudyModelManagerImpl.create(sessionFactory);
         courseManager = CourseModelManagerImpl.create(sessionFactory);
+        courseToFieldOfStudyManager = CourseToFieldOfStudyModelManagerImpl.create(sessionFactory);
+        didacticUnitManager = DidacticUnitModelManagerImpl.create(sessionFactory);
         appointmentManager = AppointmentModelManagerImpl.create(sessionFactory);
         courseGroupManager = CourseGroupModelManagerImpl.create(sessionFactory);
         courseLectureManager = CourseLectureModelManagerImpl.create(sessionFactory);
         studentManager = StudentModelManagerImpl.create(sessionFactory);
+        completedCourseManager = CompletedCourseModelManagerImpl.create(sessionFactory);
     }
 
     private ExternalDatabaseManagerImpl(DatabaseConfiguration databaseConfiguration) throws NullPointerException {
@@ -64,10 +70,13 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
         this.sessionFactory = null;
         this.fieldOfStudyManager = null;
         this.courseManager = null;
+        this.courseToFieldOfStudyManager = null;
+        this.didacticUnitManager = null;
         this.appointmentManager = null;
         this.courseGroupManager = null;
         this.courseLectureManager = null;
         this.studentManager = null;
+        this.completedCourseManager = null;
         validate();
         init();
     }
@@ -78,31 +87,36 @@ final class ExternalDatabaseManagerImpl implements ExternalDatabaseManager {
 
     @Override
     public AppointmentModelManager getAppointmentModelManager() {
-        return null;
+        return appointmentManager;
     }
 
     @Override
     public CourseGroupModelManager getCourseGroupModelManager() {
-        return null;
+        return courseGroupManager;
     }
 
     @Override
     public CourseLectureModelManager getCourseLectureModelManager() {
-        return null;
+        return courseLectureManager;
     }
 
     @Override
     public CourseModelManager getCourseModelManager() {
-        return null;
+        return courseManager;
+    }
+
+    @Override
+    public DidacticUnitModelManager getDidacticUnitModelManager() {
+        return didacticUnitManager;
     }
 
     @Override
     public FieldOfStudyModelManager getFieldOfStudyModelManager() {
-        return null;
+        return fieldOfStudyManager;
     }
 
     @Override
     public StudentModelManager getStudentModelManager() {
-        return null;
+        return studentManager;
     }
 }

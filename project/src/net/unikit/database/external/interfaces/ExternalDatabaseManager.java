@@ -10,6 +10,7 @@ public interface ExternalDatabaseManager {
     CourseGroupModelManager getCourseGroupModelManager();
     CourseLectureModelManager getCourseLectureModelManager();
     CourseModelManager getCourseModelManager();
+    DidacticUnitModelManager getDidacticUnitModelManager();
     FieldOfStudyModelManager getFieldOfStudyModelManager();
     StudentModelManager getStudentModelManager();
 }

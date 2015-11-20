@@ -5,5 +5,5 @@ import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
 /**
  * Created by Andreas on 19.11.2015.
  */
-interface DidacticUnitModelManager extends AbstractModelManager<DidacticUnitModel, Integer> {
+public interface DidacticUnitModelManager extends AbstractModelManager<DidacticUnitModel, Integer> {
 }
