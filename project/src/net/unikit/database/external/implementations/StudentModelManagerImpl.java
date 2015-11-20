@@ -20,22 +20,22 @@ final class StudentModelManagerImpl
 
         @Override
         public StudentModel createEntity() {
-                return null;
+                return new StudentModelImpl();
         }
 
         @Override
         protected String createIdFromBaseIdType(String id) {
-                return null;
+                return id;
         }
 
         @Override
         protected String createBaseIdFromIdType(String id) {
-                return null;
+                return id;
         }
 
         @Override
         protected Class getAnnotatedClass() {
-                return null;
+                return StudentModelImpl.class;
         }
 
         @Override

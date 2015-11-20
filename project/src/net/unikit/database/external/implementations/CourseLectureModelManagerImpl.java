@@ -20,22 +20,22 @@ final class CourseLectureModelManagerImpl
 
     @Override
     public CourseLectureModel createEntity() {
-        return null;
+        return new CourseLectureModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return CourseLectureModelImpl.class;
     }
 
     @Override

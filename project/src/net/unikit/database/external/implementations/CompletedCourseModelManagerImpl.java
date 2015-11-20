@@ -18,22 +18,22 @@ final class CompletedCourseModelManagerImpl
 
     @Override
     public CompletedCourseModel createEntity() {
-        return null;
+        return new CompletedCourseModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return CompletedCourseModelImpl.class;
     }
 
     @Override

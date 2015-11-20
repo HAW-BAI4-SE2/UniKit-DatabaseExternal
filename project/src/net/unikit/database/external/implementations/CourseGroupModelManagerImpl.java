@@ -20,22 +20,22 @@ final class CourseGroupModelManagerImpl
 
     @Override
     public CourseGroupModel createEntity() {
-        return null;
+        return new CourseGroupModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return CourseGroupModelImpl.class;
     }
 
     @Override

@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 /**
  * Created by Andreas on 20.11.2015.
  */
-public class CourseToFieldOfStudyModelManagerImpl
+final class CourseToFieldOfStudyModelManagerImpl
         extends AbstractModelManagerImpl<CourseToFieldOfStudyModel, Integer, CourseToFieldOfStudyModelImpl, Integer>
         implements CourseToFieldOfStudyModelManager {
     private CourseToFieldOfStudyModelManagerImpl(SessionFactory sessionFactory) {
@@ -18,22 +18,22 @@ public class CourseToFieldOfStudyModelManagerImpl
 
     @Override
     public CourseToFieldOfStudyModel createEntity() {
-        return null;
+        return new CourseToFieldOfStudyModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return CourseToFieldOfStudyModelImpl.class;
     }
 
     @Override

@@ -20,22 +20,22 @@ final class DidacticUnitModelManagerImpl
 
     @Override
     public DidacticUnitModel createEntity() {
-        return null;
+        return new DidacticUnitModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return DidacticUnitModelImpl.class;
     }
 
     @Override

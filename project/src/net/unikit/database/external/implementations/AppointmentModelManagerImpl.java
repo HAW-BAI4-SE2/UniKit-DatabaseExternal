@@ -20,22 +20,22 @@ final class AppointmentModelManagerImpl
 
     @Override
     public AppointmentModel createEntity() {
-        return null;
+        return new AppointmentModelImpl();
     }
 
     @Override
     protected Integer createIdFromBaseIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Integer createBaseIdFromIdType(Integer id) {
-        return null;
+        return id;
     }
 
     @Override
     protected Class getAnnotatedClass() {
-        return null;
+        return AppointmentModelImpl.class;
     }
 
     @Override

@@ -20,22 +20,22 @@ final class FieldOfStudyModelManagerImpl
 
         @Override
         public FieldOfStudyModel createEntity() {
-                return null;
+                return new FieldOfStudyModelImpl();
         }
 
         @Override
         protected Integer createIdFromBaseIdType(Integer id) {
-                return null;
+                return id;
         }
 
         @Override
         protected Integer createBaseIdFromIdType(Integer id) {
-                return null;
+                return id;
         }
 
         @Override
         protected Class getAnnotatedClass() {
-                return null;
+                return FieldOfStudyModelImpl.class;
         }
 
         @Override
