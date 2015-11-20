@@ -1,5 +1,6 @@
 package net.unikit.database.external.implementations;
 
+import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
@@ -105,67 +106,71 @@ final class StudentModelImpl implements StudentModel {
 
 	@Transient
 	public String getStudentNumber() {
-		return null;
+		return getStudentNumberField();
 	}
 
 	@Transient
 	public void setStudentNumber(String studentNumber) {
-
+		setStudentNumberField(studentNumber);
 	}
 
 	@Transient
 	public String getFirstName() {
-		return null;
+		return getFirstNameField();
 	}
 
 	@Transient
 	public void setFirstName(String firstName) {
-
+		setFirstNameField(firstName);
 	}
 
 	@Transient
 	public String getLastName() {
-		return null;
+		return getLastNameField();
 	}
 
 	@Transient
 	public void setLastName(String lastName) {
-
+		setLastNameField(lastName);
 	}
 
 	@Transient
 	public String getEmail() {
-		return null;
+		return getEmailField();
 	}
 
 	@Transient
 	public void setEmail(String email) {
-
+		setEmailField(email);
 	}
 
 	@Transient
 	public FieldOfStudyModel getFieldOfStudy() {
-		return null;
+		return getFieldOfStudyField();
 	}
 
 	@Transient
 	public void setFieldOfStudy(FieldOfStudyModel fieldOfStudy) {
-
+		setFieldOfStudyField((FieldOfStudyModelImpl) fieldOfStudy);
 	}
 
 	@Transient
 	public int getSemester() {
-		return 0;
+		return getSemesterField();
 	}
 
 	@Transient
 	public void setSemester(int semester) {
-
+		setSemesterField(semester);
 	}
 
 	@Transient
 	public List<CourseModel> getCompletedCourses() {
-		return null;
+		ImmutableList.Builder<CourseModel> builder = ImmutableList.builder();
+		for (CompletedCourseModel completedCourse : getCompletedCourseModels()) {
+			builder.add(completedCourse.getCourse());
+		}
+		return builder.build();
 	}
 
 	@Transient

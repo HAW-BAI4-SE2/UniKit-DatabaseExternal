@@ -1,5 +1,6 @@
 package net.unikit.database.external.implementations;
 
+import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.AppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
@@ -19,6 +20,9 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 
 	@Column(name = "max_group_size", nullable = false)
 	private int maxGroupSizeField;
+
+	@Transient
+	private DidacticUnitModelImpl didacticUnitModel;
 
 	public CourseGroupModelImpl() {
 	}
@@ -54,42 +58,47 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 	}
 
 	@Transient
+	public void setDidacticUnitModel(DidacticUnitModelImpl didacticUnitModel) {
+		this.didacticUnitModel = didacticUnitModel;
+	}
+
+	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public CourseModel getCourse() {
-		return null;
+		return didacticUnitModel.getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-
+		didacticUnitModel.setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
 	public int getGroupNumber() {
-		return 0;
+		return getGroupNumberField();
 	}
 
 	@Transient
 	public void setGroupNumber(int groupNumber) {
-
+		setGroupNumberField(groupNumber);
 	}
 
 	@Transient
 	public int getMaxGroupSize() {
-		return 0;
+		return getMaxGroupSizeField();
 	}
 
 	@Transient
 	public void setMaxGroupSize(int maxGroupSize) {
-
+		setMaxGroupSizeField(maxGroupSize);
 	}
 
 	@Transient
 	public List<AppointmentModel> getAppointments() {
-		return null;
+		return ImmutableList.copyOf(didacticUnitModel.getAppointmentModels());
 	}
 }

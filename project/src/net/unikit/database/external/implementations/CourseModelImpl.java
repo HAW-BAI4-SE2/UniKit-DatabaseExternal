@@ -1,9 +1,7 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.CourseGroupModel;
-import net.unikit.database.external.interfaces.entities.CourseLectureModel;
-import net.unikit.database.external.interfaces.entities.CourseModel;
-import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
+import com.google.common.collect.ImmutableList;
+import net.unikit.database.external.interfaces.entities.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -132,76 +130,84 @@ final class CourseModelImpl implements CourseModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public String getName() {
-		return null;
+		return getNameField();
 	}
 
 	@Transient
 	public void setName(String name) {
-
+		setNameField(name);
 	}
 
 	@Transient
 	public String getAbbreviation() {
-		return null;
+		return getAbbreviationField();
 	}
 
 	@Transient
 	public void setAbbreviation(String abbreviation) {
-
+		setAbbreviationField(abbreviation);
 	}
 
 	@Transient
 	public Integer getSemester() {
-		return null;
+		return getSemesterField();
 	}
 
 	@Transient
 	public void setSemester(Integer semester) {
-
+		setSemesterField(semester);
 	}
 
 	@Transient
 	public int getMinTeamSize() {
-		return 0;
+		return getMinTeamSizeField();
 	}
 
 	@Transient
 	public void setMinTeamSize(int minTeamSize) {
-
+		setMinTeamSizeField(minTeamSize);
 	}
 
 	@Transient
 	public int getMaxTeamSize() {
-		return 0;
+		return getMaxTeamSizeField();
 	}
 
 	@Transient
 	public void setMaxTeamSize(int maxTeamSize) {
-
+		setMaxTeamSizeField(maxTeamSize);
 	}
 
 	@Transient
 	public CourseLectureModel getCourseLecture() {
+		for (DidacticUnitModel didacticUnit : getDidacticUnitModels()) {
+			if (didacticUnit instanceof CourseLectureModel)
+				return (CourseLectureModel) didacticUnit;
+		}
 		return null;
-	}
-
-	@Transient
-	public void setCourseLecture(CourseLectureModel courseLecture) {
-
 	}
 
 	@Transient
 	public List<CourseGroupModel> getCourseGroups() {
-		return null;
+		ImmutableList.Builder<CourseGroupModel> builder = ImmutableList.builder();
+		for (DidacticUnitModel didacticUnit : getDidacticUnitModels()) {
+			if (didacticUnit instanceof CourseGroupModel)
+				builder.add((CourseGroupModel) didacticUnit);
+		}
+		return builder.build();
 	}
 
 	@Transient
 	public List<FieldOfStudyModel> getFieldOfStudies() {
-		return null;
+		ImmutableList.Builder<FieldOfStudyModel> builder = ImmutableList.builder();
+		for (CourseToFieldOfStudyModel courseToFieldOfStudy : getCourseToFieldOfStudyModels()) {
+			builder.add(courseToFieldOfStudy.getFieldOfStudy());
+		}
+		return builder.build();
 	}
 }

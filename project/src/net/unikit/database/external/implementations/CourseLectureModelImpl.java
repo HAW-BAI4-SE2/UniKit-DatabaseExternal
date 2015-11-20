@@ -1,5 +1,6 @@
 package net.unikit.database.external.implementations;
 
+import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.AppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
@@ -13,6 +14,9 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
 	private int idField;
+
+	@Transient
+	private DidacticUnitModelImpl didacticUnitModel;
 
 	public CourseLectureModelImpl() {
 	}
@@ -30,22 +34,27 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 	}
 
 	@Transient
+	public void setDidacticUnitModel(DidacticUnitModelImpl didacticUnitModel) {
+		this.didacticUnitModel = didacticUnitModel;
+	}
+
+	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public CourseModel getCourse() {
-		return null;
+		return didacticUnitModel.getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-
+		didacticUnitModel.setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
 	public List<AppointmentModel> getAppointments() {
-		return null;
+		return ImmutableList.copyOf(didacticUnitModel.getAppointmentModels());
 	}
 }

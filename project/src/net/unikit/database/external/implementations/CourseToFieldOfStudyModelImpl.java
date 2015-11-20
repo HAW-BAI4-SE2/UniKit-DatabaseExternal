@@ -58,26 +58,26 @@ final class CourseToFieldOfStudyModelImpl implements CourseToFieldOfStudyModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public CourseModel getCourse() {
-		return null;
+		return getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-
+		setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
 	public FieldOfStudyModel getFieldOfStudy() {
-		return null;
+		return getFieldOfStudyField();
 	}
 
 	@Transient
 	public void setFieldOfStudy(FieldOfStudyModel fieldOfStudy) {
-
+		setFieldOfStudyField((FieldOfStudyModelImpl) fieldOfStudy);
 	}
 }

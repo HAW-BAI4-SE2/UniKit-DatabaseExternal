@@ -57,26 +57,26 @@ final class CompletedCourseModelImpl implements CompletedCourseModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public StudentModel getStudent() {
-		return null;
+		return getStudentField();
 	}
 
 	@Transient
 	public void setStudent(StudentModel student) {
-
+		setStudentField((StudentModelImpl) student);
 	}
 
 	@Transient
 	public CourseModel getCourse() {
-		return null;
+		return getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-
+		setCourseField((CourseModelImpl) course);
 	}
 }

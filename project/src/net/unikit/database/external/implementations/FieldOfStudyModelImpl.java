@@ -82,26 +82,26 @@ final class FieldOfStudyModelImpl implements FieldOfStudyModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public String getName() {
-		return null;
+		return getNameField();
 	}
 
 	@Transient
 	public void setName(String name) {
-
+		setNameField(name);
 	}
 
 	@Transient
 	public String getAbbreviation() {
-		return null;
+		return getAbbreviationField();
 	}
 
 	@Transient
 	public void setAbbreviation(String abbreviation) {
-
+		setAbbreviationField(abbreviation);
 	}
 }

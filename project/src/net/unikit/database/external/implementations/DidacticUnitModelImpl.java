@@ -1,5 +1,6 @@
 package net.unikit.database.external.implementations;
 
+import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.AppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.DidacticUnitModel;
@@ -60,21 +61,21 @@ final class DidacticUnitModelImpl implements DidacticUnitModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public CourseModel getCourse() {
-		return null;
+		return getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-
+		setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
 	public List<AppointmentModel> getAppointments() {
-		return null;
+		return ImmutableList.copyOf(getAppointmentModels());
 	}
 }

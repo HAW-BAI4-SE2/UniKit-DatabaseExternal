@@ -24,7 +24,6 @@ public interface CourseModel extends AbstractModel<Integer> {
     void setMaxTeamSize(int maxTeamSize);
 
     CourseLectureModel getCourseLecture();
-    void setCourseLecture(CourseLectureModel courseLecture);
 
     List<CourseGroupModel> getCourseGroups();
 

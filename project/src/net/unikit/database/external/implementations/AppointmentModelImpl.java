@@ -73,36 +73,36 @@ final class AppointmentModelImpl implements AppointmentModel {
 
 	@Transient
 	public Integer getId() {
-		return null;
+		return getIdField();
 	}
 
 	@Transient
 	public DidacticUnitModel getDidacticUnit() {
-		return null;
+		return getDidacticUnitField();
 	}
 
 	@Transient
 	public void setDidacticUnit(DidacticUnitModel didacticUnit) {
-
+		setDidacticUnitField((DidacticUnitModelImpl) didacticUnit);
 	}
 
 	@Transient
 	public Date getStartDate() {
-		return null;
+		return getStartDateField();
 	}
 
 	@Transient
 	public void setStartDate(Date startDate) {
-
+		setStartDateField(startDate);
 	}
 
 	@Transient
 	public Date getEndDate() {
-		return null;
+		return getEndDateField();
 	}
 
 	@Transient
 	public void setEndDate(Date endDate) {
-
+		setEndDateField(endDate);
 	}
 }
