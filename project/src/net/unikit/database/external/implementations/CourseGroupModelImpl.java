@@ -6,14 +6,22 @@ import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "COURSE_GROUP")
 final class CourseGroupModelImpl implements CourseGroupModel {
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private int idField;
+	private Integer idField;
+
+	@ManyToOne
+	@JoinColumn(name = "course_id", nullable = false)
+	private CourseModelImpl courseField;
 
 	@Column(name = "group_number", nullable = false)
 	private int groupNumberField;
@@ -21,24 +29,33 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 	@Column(name = "max_group_size", nullable = false)
 	private int maxGroupSizeField;
 
-	@Transient
-	private DidacticUnitModelImpl didacticUnitModel;
+	@OneToMany(mappedBy = "didacticUnitField")
+	private List<AppointmentModelImpl> appointmentModels = new ArrayList<>();
 
 	public CourseGroupModelImpl() {
 	}
 
-	public CourseGroupModelImpl(int idField, int groupNumberField, int maxGroupSizeField) {
-		this.idField = idField;
+	public CourseGroupModelImpl(CourseModelImpl courseField, int groupNumberField, int maxGroupSizeField, List<AppointmentModelImpl> appointmentModels) {
+		this.courseField = courseField;
 		this.groupNumberField = groupNumberField;
 		this.maxGroupSizeField = maxGroupSizeField;
+		this.appointmentModels = appointmentModels;
 	}
 
-	int getIdField() {
+	Integer getIdField() {
 		return idField;
 	}
 
-	void setIdField(int idField) {
+	void setIdField(Integer idField) {
 		this.idField = idField;
+	}
+
+	CourseModelImpl getCourseField() {
+		return courseField;
+	}
+
+	void setCourseField(CourseModelImpl courseField) {
+		this.courseField = courseField;
 	}
 
 	int getGroupNumberField() {
@@ -57,14 +74,12 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 		this.maxGroupSizeField = maxGroupSizeField;
 	}
 
-	@Transient
-	public DidacticUnitModelImpl getDidacticUnitModel() {
-		return didacticUnitModel;
+	List<AppointmentModelImpl> getAppointmentModels() {
+		return appointmentModels;
 	}
 
-	@Transient
-	public void setDidacticUnitModel(DidacticUnitModelImpl didacticUnitModel) {
-		this.didacticUnitModel = didacticUnitModel;
+	void setAppointmentModels(List<AppointmentModelImpl> appointmentModels) {
+		this.appointmentModels = appointmentModels;
 	}
 
 	@Transient
@@ -74,12 +89,12 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 
 	@Transient
 	public CourseModel getCourse() {
-		return didacticUnitModel.getCourseField();
+		return getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-		didacticUnitModel.setCourseField((CourseModelImpl) course);
+		setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
@@ -104,6 +119,6 @@ final class CourseGroupModelImpl implements CourseGroupModel {
 
 	@Transient
 	public List<AppointmentModel> getAppointments() {
-		return ImmutableList.copyOf(didacticUnitModel.getAppointmentModels());
+		return ImmutableList.copyOf(getAppointmentModels());
 	}
 }

@@ -6,41 +6,55 @@ import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "COURSE_LECTURE")
 final class CourseLectureModelImpl implements CourseLectureModel {
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private int idField;
+	private Integer idField;
 
-	@Transient
-	private DidacticUnitModelImpl didacticUnitModel;
+	@ManyToOne
+	@JoinColumn(name = "course_id", nullable = false)
+	private CourseModelImpl courseField;
+
+	@OneToMany(mappedBy = "didacticUnitField")
+	private List<AppointmentModelImpl> appointmentModels = new ArrayList<>();
 
 	public CourseLectureModelImpl() {
 	}
 
-	public CourseLectureModelImpl(int idField) {
-		this.idField = idField;
+	public CourseLectureModelImpl(CourseModelImpl courseField) {
+		this.courseField = courseField;
 	}
 
-	int getIdField() {
+	Integer getIdField() {
 		return idField;
 	}
 
-	void setIdField(int idField) {
+	void setIdField(Integer idField) {
 		this.idField = idField;
 	}
 
-	@Transient
-	public DidacticUnitModelImpl getDidacticUnitModel() {
-		return didacticUnitModel;
+	CourseModelImpl getCourseField() {
+		return courseField;
 	}
 
-	@Transient
-	public void setDidacticUnitModel(DidacticUnitModelImpl didacticUnitModel) {
-		this.didacticUnitModel = didacticUnitModel;
+	void setCourseField(CourseModelImpl courseField) {
+		this.courseField = courseField;
+	}
+
+	List<AppointmentModelImpl> getAppointmentModels() {
+		return appointmentModels;
+	}
+
+	void setAppointmentModels(List<AppointmentModelImpl> appointmentModels) {
+		this.appointmentModels = appointmentModels;
 	}
 
 	@Transient
@@ -50,16 +64,16 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 
 	@Transient
 	public CourseModel getCourse() {
-		return didacticUnitModel.getCourseField();
+		return getCourseField();
 	}
 
 	@Transient
 	public void setCourse(CourseModel course) {
-		didacticUnitModel.setCourseField((CourseModelImpl) course);
+		setCourseField((CourseModelImpl) course);
 	}
 
 	@Transient
 	public List<AppointmentModel> getAppointments() {
-		return ImmutableList.copyOf(didacticUnitModel.getAppointmentModels());
+		return ImmutableList.copyOf(getAppointmentModels());
 	}
 }
