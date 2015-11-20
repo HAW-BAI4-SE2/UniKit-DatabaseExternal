@@ -34,6 +34,11 @@ final class CourseLectureModelImpl implements CourseLectureModel {
 	}
 
 	@Transient
+	public DidacticUnitModelImpl getDidacticUnitModel() {
+		return didacticUnitModel;
+	}
+
+	@Transient
 	public void setDidacticUnitModel(DidacticUnitModelImpl didacticUnitModel) {
 		this.didacticUnitModel = didacticUnitModel;
 	}

@@ -45,11 +45,6 @@ final class CourseLectureModelManagerImpl
     }
 
     @Override
-    protected void updateDatabaseFields(CourseLectureModelImpl entityOld, CourseLectureModelImpl entityNew) {
-
-    }
-
-    @Override
     public List<CourseLectureModel> getAllEntities() {
         List<CourseLectureModel> allEntities = super.getAllEntities();
         for (CourseLectureModel entity : allEntities) {
@@ -91,5 +86,10 @@ final class CourseLectureModelManagerImpl
         DidacticUnitModelImpl didacticUnitImpl = (DidacticUnitModelImpl) didacticUnitManager.getEntity(entityImpl.getIdField());
         entityImpl.setDidacticUnitModel(didacticUnitImpl);
         return super.addEntity(entity);
+    }
+
+    @Override
+    protected void updateDatabaseFields(CourseLectureModelImpl entityOld, CourseLectureModelImpl entityNew) {
+
     }
 }
