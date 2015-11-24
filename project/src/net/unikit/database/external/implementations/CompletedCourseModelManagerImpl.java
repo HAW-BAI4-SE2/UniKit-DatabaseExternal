@@ -38,6 +38,8 @@ final class CompletedCourseModelManagerImpl
 
     @Override
     protected void updateDatabaseFields(CompletedCourseModelImpl entityOld, CompletedCourseModelImpl entityNew) {
-
+        entityOld.setIdField(entityNew.getIdField());
+        entityOld.setStudentField(entityNew.getStudentField());
+        entityOld.setCourseField(entityNew.getCourseField());
     }
 }

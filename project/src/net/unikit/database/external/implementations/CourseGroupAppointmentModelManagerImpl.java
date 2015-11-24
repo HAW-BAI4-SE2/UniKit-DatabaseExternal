@@ -40,6 +40,9 @@ final class CourseGroupAppointmentModelManagerImpl
 
     @Override
     protected void updateDatabaseFields(CourseGroupAppointmentModelImpl entityOld, CourseGroupAppointmentModelImpl entityNew) {
-
+        entityOld.setIdField(entityNew.getIdField());
+        entityOld.setCourseGroupField(entityNew.getCourseGroupField());
+        entityOld.setStartDateField(entityNew.getStartDateField());
+        entityOld.setEndDateField(entityNew.getEndDateField());
     }
 }

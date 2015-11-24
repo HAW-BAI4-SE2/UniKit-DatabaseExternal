@@ -40,6 +40,15 @@ final class CourseModelManagerImpl
 
     @Override
     protected void updateDatabaseFields(CourseModelImpl entityOld, CourseModelImpl entityNew) {
-
+        entityOld.setIdField(entityNew.getIdField());
+        entityOld.setNameField(entityNew.getNameField());
+        entityOld.setAbbreviationField(entityNew.getAbbreviationField());
+        entityOld.setSemesterField(entityNew.getSemesterField());
+        entityOld.setMinTeamSizeField(entityNew.getMinTeamSizeField());
+        entityOld.setMaxTeamSizeField(entityNew.getMaxTeamSizeField());
+        entityOld.setCourseLectureField(entityNew.getCourseLectureField());
+        entityOld.setCourseGroupModels(entityNew.getCourseGroupModels());
+        entityOld.setCourseToFieldOfStudyModels(entityNew.getCourseToFieldOfStudyModels());
+        entityOld.setCompletedCourseModels(entityNew.getCompletedCourseModels());
     }
 }

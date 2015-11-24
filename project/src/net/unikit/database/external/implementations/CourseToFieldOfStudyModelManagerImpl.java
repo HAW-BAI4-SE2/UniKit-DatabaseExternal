@@ -38,6 +38,8 @@ final class CourseToFieldOfStudyModelManagerImpl
 
     @Override
     protected void updateDatabaseFields(CourseToFieldOfStudyModelImpl entityOld, CourseToFieldOfStudyModelImpl entityNew) {
-
+        entityOld.setIdField(entityNew.getIdField());
+        entityOld.setCourseField(entityNew.getCourseField());
+        entityOld.setFieldOfStudyField(entityNew.getFieldOfStudyField());
     }
 }
