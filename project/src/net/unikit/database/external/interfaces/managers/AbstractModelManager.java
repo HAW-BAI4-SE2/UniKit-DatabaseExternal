@@ -24,13 +24,13 @@ public interface AbstractModelManager<EntityType extends AbstractModel, IdType> 
     EntityType getEntity(IdType id);
 
     /**
-     * Updates an existing entity if the table.
+     * Updates an existing entity in the table.
      * @param entity Entity object with new attribute values which should be applied to the existing entity
      */
     void updateEntity(EntityType entity);
 
     /**
-     * Deletes an existing entity if the table.
+     * Deletes an existing entity in the table.
      * @param entity The Entity which should be deleted
      */
     void deleteEntity(EntityType entity);

@@ -3,7 +3,9 @@ package net.unikit.database.external.interfaces.managers;
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 
 /**
- * Created by Andreas on 19.11.2015.
+ * A manager for the course groups.
+ * @author Andreas Berks
+ * @since 1.2.1
  */
 public interface CourseGroupModelManager extends AbstractModelManager<CourseGroupModel, Integer> {
 }
