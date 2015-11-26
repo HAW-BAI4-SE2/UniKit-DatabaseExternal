@@ -201,6 +201,11 @@ final class CourseModelImpl implements CourseModel {
 	}
 
 	@Transient
+	public void setCourseLecture(CourseLectureModel courseLecture) {
+		setCourseLectureField((CourseLectureModelImpl) courseLecture);
+	}
+
+	@Transient
 	public List<CourseGroupModel> getCourseGroups() {
 		return ImmutableList.copyOf(getCourseGroupModels());
 	}

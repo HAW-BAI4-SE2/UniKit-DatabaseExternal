@@ -83,6 +83,12 @@ public interface CourseModel extends AbstractModel<Integer> {
     CourseLectureModel getCourseLecture();
 
     /**
+     * Setter for the course lecture of the course.
+     * @param courseLecture The course lecture of the course
+     */
+    void setCourseLecture(CourseLectureModel courseLecture);
+
+    /**
      * Getter for the course group of the course.
      * Returns a immutable list of {@link CourseGroupModel}.
      * @return The course group of the course
