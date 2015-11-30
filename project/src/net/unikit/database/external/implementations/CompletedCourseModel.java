@@ -1,8 +1,8 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.AbstractModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
+import net.unikit.database.interfaces.entities.AbstractModel;
 
 /**
  * A model for a completed course.

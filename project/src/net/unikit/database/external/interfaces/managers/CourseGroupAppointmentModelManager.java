@@ -1,6 +1,7 @@
 package net.unikit.database.external.interfaces.managers;
 
 import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentModel;
+import net.unikit.database.interfaces.managers.AbstractModelManager;
 
 /**
  * A manager for the course group appointments.

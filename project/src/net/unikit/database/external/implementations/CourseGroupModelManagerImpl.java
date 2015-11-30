@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 import net.unikit.database.external.interfaces.managers.CourseGroupModelManager;
+import net.unikit.database.implementations.AbstractModelManagerImpl;
 import org.hibernate.SessionFactory;
 
 /**

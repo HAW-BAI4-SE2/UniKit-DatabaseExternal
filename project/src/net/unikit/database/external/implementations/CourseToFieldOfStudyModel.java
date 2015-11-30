@@ -1,8 +1,8 @@
 package net.unikit.database.external.implementations;
 
-import net.unikit.database.external.interfaces.entities.AbstractModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
+import net.unikit.database.interfaces.entities.AbstractModel;
 
 /**
  * A model to assign a field of study to a course.

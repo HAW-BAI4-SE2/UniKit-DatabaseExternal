@@ -1,5 +1,7 @@
 package net.unikit.database.external.interfaces.entities;
 
+import net.unikit.database.interfaces.entities.AbstractModel;
+
 import java.util.Date;
 
 /**

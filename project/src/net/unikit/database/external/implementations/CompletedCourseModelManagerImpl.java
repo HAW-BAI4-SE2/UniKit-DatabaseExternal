@@ -1,5 +1,6 @@
 package net.unikit.database.external.implementations;
 
+import net.unikit.database.implementations.AbstractModelManagerImpl;
 import org.hibernate.SessionFactory;
 
 /**
