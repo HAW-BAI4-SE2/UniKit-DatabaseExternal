@@ -25,16 +25,6 @@ final class StudentModelManagerImpl
     }
 
     @Override
-    protected String createIdFromBaseIdType(String id) {
-        return id;
-    }
-
-    @Override
-    protected String createBaseIdFromIdType(String id) {
-        return id;
-    }
-
-    @Override
     protected Class getAnnotatedClass() {
         return StudentModelImpl.class;
     }

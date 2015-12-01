@@ -25,16 +25,6 @@ final class CourseLectureModelManagerImpl
     }
 
     @Override
-    protected Integer createIdFromBaseIdType(Integer id) {
-        return id;
-    }
-
-    @Override
-    protected Integer createBaseIdFromIdType(Integer id) {
-        return id;
-    }
-
-    @Override
     protected Class getAnnotatedClass() {
         return CourseLectureModelImpl.class;
     }

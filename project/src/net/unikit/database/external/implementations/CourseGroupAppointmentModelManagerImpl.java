@@ -25,16 +25,6 @@ final class CourseGroupAppointmentModelManagerImpl
     }
 
     @Override
-    protected Integer createIdFromBaseIdType(Integer id) {
-        return id;
-    }
-
-    @Override
-    protected Integer createBaseIdFromIdType(Integer id) {
-        return id;
-    }
-
-    @Override
     protected Class getAnnotatedClass() {
         return CourseGroupAppointmentModelImpl.class;
     }
