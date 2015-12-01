@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "FIELD_OF_STUDY", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "abbreviation"), @UniqueConstraint(columnNames = "name") })
-final class FieldOfStudyModelImpl implements FieldOfStudyModel {
+final class FieldOfStudyModelImpl extends AbstractModelImpl<Integer> implements FieldOfStudyModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

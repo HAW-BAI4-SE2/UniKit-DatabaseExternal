@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "STUDENT", uniqueConstraints = @UniqueConstraint(columnNames = "email") )
-final class StudentModelImpl implements StudentModel {
+final class StudentModelImpl extends AbstractModelImpl<String> implements StudentModel {
 	@Id
 	@Column(name = "student_number", unique = true, nullable = false, length = 31)
 	private String studentNumberField;

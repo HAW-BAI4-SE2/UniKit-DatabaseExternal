@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.CourseLectureAppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseLectureModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "APPOINTMENT", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "course_lecture_id", "end_date" }),
 		@UniqueConstraint(columnNames = { "course_lecture_id", "start_date" }) })
-final class CourseLectureAppointmentModelImpl implements CourseLectureAppointmentModel {
+final class CourseLectureAppointmentModelImpl extends AbstractModelImpl<Integer> implements CourseLectureAppointmentModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

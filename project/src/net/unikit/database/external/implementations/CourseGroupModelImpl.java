@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseGroupModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "COURSE_GROUP")
-final class CourseGroupModelImpl implements CourseGroupModel {
+final class CourseGroupModelImpl extends AbstractModelImpl<Integer> implements CourseGroupModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

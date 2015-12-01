@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.StudentModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 
@@ -9,7 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "COMPLETED_COURSE")
-final class CompletedCourseModelImpl implements CompletedCourseModel {
+final class CompletedCourseModelImpl extends AbstractModelImpl<Integer> implements CompletedCourseModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

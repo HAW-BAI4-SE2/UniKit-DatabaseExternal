@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import com.google.common.collect.ImmutableList;
 import net.unikit.database.external.interfaces.entities.*;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "COURSE", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "abbreviation"), @UniqueConstraint(columnNames = "name") })
-final class CourseModelImpl implements CourseModel {
+final class CourseModelImpl extends AbstractModelImpl<Integer> implements CourseModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

@@ -2,6 +2,7 @@ package net.unikit.database.external.implementations;
 
 import net.unikit.database.external.interfaces.entities.CourseModel;
 import net.unikit.database.external.interfaces.entities.FieldOfStudyModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "COURSE_TO_FIELD_OF_STUDY", uniqueConstraints = @UniqueConstraint(columnNames = {
 		"course_id", "field_of_study_id" }) )
-final class CourseToFieldOfStudyModelImpl implements CourseToFieldOfStudyModel {
+final class CourseToFieldOfStudyModelImpl extends AbstractModelImpl<Integer> implements CourseToFieldOfStudyModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

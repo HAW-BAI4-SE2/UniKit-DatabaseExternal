@@ -5,6 +5,7 @@ import net.unikit.database.external.interfaces.entities.CourseGroupAppointmentMo
 import net.unikit.database.external.interfaces.entities.CourseLectureAppointmentModel;
 import net.unikit.database.external.interfaces.entities.CourseLectureModel;
 import net.unikit.database.external.interfaces.entities.CourseModel;
+import net.unikit.database.implementations.AbstractModelImpl;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "COURSE_LECTURE")
-final class CourseLectureModelImpl implements CourseLectureModel {
+final class CourseLectureModelImpl extends AbstractModelImpl<Integer> implements CourseLectureModel {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
