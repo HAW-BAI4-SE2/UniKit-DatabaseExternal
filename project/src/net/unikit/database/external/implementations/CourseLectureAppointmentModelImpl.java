@@ -10,7 +10,7 @@ import java.util.Date;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "APPOINTMENT", uniqueConstraints = {
+@Table(name = "COURSE_LECTURE_APPOINTMENT", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "course_lecture_id", "end_date" }),
 		@UniqueConstraint(columnNames = { "course_lecture_id", "start_date" }) })
 final class CourseLectureAppointmentModelImpl extends AbstractModelImpl<Integer> implements CourseLectureAppointmentModel {
